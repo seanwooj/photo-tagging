@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery.js"></script>
+		<script src="tagging.js"></script>
+		<style>
+			.photo_container {
+				position: relative;
+				height: 500px;
+				width: 700px;
+			}
+
+			.photo{
+				background: url('image.jpg');
+				background-size: cover;
+				height: 500px;
+				width: 700px;
+				position: absolute;
+			}
+
+			.tag_container {
+				height: 100%;
+				width: 100%;
+			}
+
+			.click_container {
+				width: 100px;
+				height: 200px;
+				position: absolute;
+				display: none;
+			}
+
+			.pretag{
+				width: 76px;
+				height: 76px;
+				border: 2px solid white;
+				box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+				float: left;
+			}
+
+			.tag{
+				width: 78px;
+				height: 78px;
+				border: 2px solid white;
+				position: absolute;
+				box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+			}
+
+			.choice_container {
+				width: 130px;
+				float: left;
+				position: relative;
+				top: 10px;
+				left: -25px;
+				border: rgb(230,230,230) 1px solid;
+				box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+				-moz-border-radius: 1px;
+				-webkit-border-radius: 1px;
+				border-radius: 1px;
+			}
+
+			.choice {
+				background: white;
+				padding: 3px 5px;
+				border-bottom: 1px solid rgb(230,230,230);
+			}
+
+			.choice:hover{
+				background: #4E9FF5;
+				color: white;
+			}
+
+			.name {
+				background: white;
+				position: relative;
+				top: 84px;
+				padding: 3px 5px;
+				border: rgb(200,200,200);
+				box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1>phototagger</h1>
+		<div class="photo_container">
+			<div class="photo">
+				<div class="tag_container"></diV>
+			</div>
+		</div>
+		<div class="click_container"></div>
+		<div class="info">
+			<h2>Users in this photo</h2>
+		</div>
+	</body>
+</html>
