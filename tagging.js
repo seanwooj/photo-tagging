@@ -6,15 +6,22 @@ data = [
 ];
 
 $(function(){
-	tagList();
+	canvas = $('.photo_container')
+	tagList(canvas);
 	iterateThroughData();	
-	buttonHandler = makeButtonHandler();
+	buttonHandler = makeToggleHandler(canvas);
 	buttonHandler.toggleHide();
 	usersInPhoto();
 });
 
-function tagList() {
-	$('.photo').click(function(event){
+// add user store like niranjan's code
+function userStore() {
+	this.users = [],
+	this.seed = []
+}
+
+function tagList(canvas) {
+	$(canvas).click(function(event){
 		// debug
 		// alert(event.pageX);
 		// alert(event.pageY);
@@ -75,11 +82,11 @@ function usersInPhoto() {
 }
 
 
-function makeButtonHandler() {
+function makeToggleHandler(canvas) {
 	return {
 		toggleHide: function() {
-			$('.photo_container').mouseenter(this.showTags);
-			$('.photo_container').mouseleave(this.hideTags);
+			$(canvas).mouseenter(this.showTags);
+			$(canvas).mouseleave(this.hideTags);
 		},
 
 		hideTags: function() {
