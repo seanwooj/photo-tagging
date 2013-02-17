@@ -1,14 +1,14 @@
 prePopulated = ["Mike", "Sean", "Andrew", "Jackie", "Nick"];
 data = [
-	{ name: 'Sean', x: '334', y: '351' },
-	{ name: 'Nick', x: '412', y: '336' },
-	{ name: 'Mike', x: '139', y: '263' }
+	{ name: 'Sean', x: '294', y: '391' },
+	{ name: 'Nick', x: '372', y: '366' },
+	{ name: 'Mike', x: '99', y: '293' }
 ];
 
 $(function(){
 	canvas = $('.photo_container')
 	tagList(canvas);
-	iterateThroughData();	
+	createTagsFromData();	
 	buttonHandler = makeToggleHandler(canvas);
 	buttonHandler.toggleHide();
 	usersInPhoto();
@@ -52,11 +52,13 @@ function tagList(canvas) {
 					.html(this)
 			);
 		});
+		createTagData();
 	});
 }
 
-function iterateThroughData() {
+function createTagsFromData() {
 	// takes the existing data and places a tag there
+	console.log('I got called!');
 	$(data).each(function(){
 		$('.tag_container')
 			.append(
@@ -67,8 +69,8 @@ function iterateThroughData() {
 							.addClass('name')
 							.html(this.name)
 					)
-					.css('left', this.x - 40 + 'px')
-					.css('top', this.y - 40 + 'px')
+					.css('left', this.x + 'px')
+					.css('top', this.y - 80 + 'px')
 					.hide()
 			);
 	});
@@ -101,3 +103,15 @@ function makeToggleHandler(canvas) {
 	}
 }
 
+function createTagData() {
+
+	$('.choice').click(function(){
+		var x = parseInt(($('.click_container').css('left')),'px');
+		var y = parseInt(($('.click_container').css('top')), 'px');
+		data.push(
+			{name: $(this).html(), x: x, y: y}
+		);
+		$('.click_container').fadeOut();
+		createTagsFromData();
+	});
+}
